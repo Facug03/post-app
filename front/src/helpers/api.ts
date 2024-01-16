@@ -3,6 +3,9 @@ import { FieldValues } from 'react-hook-form'
 
 import type { Post, Filter, PaginatedPost } from '../types'
 
+const BACK_URL = 'https://twitter-clone-facundo-projects.koyeb.app'
+// const BACK_URL = 'https://post-app-h399.onrender.com'
+
 export type commentPost = {
   username: string | null | undefined
   comment: string
@@ -15,7 +18,7 @@ export const getPosts = async (
   filters: Filter
 ): Promise<PaginatedPost> => {
   const response = await axios.get(
-    `https://post-app-h399.onrender.com/post?page=${page}&order=${filters.order}&filter=${filters.filter}`
+    `${BACK_URL}/post?page=${page}&order=${filters.order}&filter=${filters.filter}`
   )
 
   const post = response.data
@@ -24,9 +27,7 @@ export const getPosts = async (
 }
 
 export const getComment = async (id: string | undefined): Promise<Post> => {
-  const response = await axios.get(
-    `https://post-app-h399.onrender.com/post/${id}`
-  )
+  const response = await axios.get(`${BACK_URL}/post/${id}`)
 
   const post = response.data
 
@@ -34,24 +35,18 @@ export const getComment = async (id: string | undefined): Promise<Post> => {
 }
 
 export const post = async (data: FieldValues): Promise<PaginatedPost> => {
-  const post = await axios.post(
-    `https://post-app-h399.onrender.com/post`,
-    {
-      post: data,
-    }
-  )
+  const post = await axios.post(`${BACK_URL}/post`, {
+    post: data,
+  })
 
   return post.data
 }
 
 export const postLike = async (id: string, idUser: string) => {
-  await axios.post(
-    `https://post-app-h399.onrender.com/post/like`,
-    {
-      id,
-      idUser,
-    }
-  )
+  await axios.post(`${BACK_URL}/post/like`, {
+    id,
+    idUser,
+  })
 }
 
 export const postComment = async ({
@@ -60,30 +55,17 @@ export const postComment = async ({
   username,
   comment,
 }: commentPost) => {
-  await axios.post(
-    `https://post-app-h399.onrender.com/post/comment`,
-    {
-      id,
-      userImage,
-      username,
-      comment,
-    }
-  )
+  await axios.post(`${BACK_URL}/post/comment`, {
+    id,
+    userImage,
+    username,
+    comment,
+  })
 }
 
 export const deleteComment = async (id: string, idComment: string) => {
-  await axios.post(
-    `https://post-app-h399.onrender.com/post/delete`,
-    {
-      id,
-      idComment,
-    }
-  )
+  await axios.post(`${BACK_URL}/post/delete`, {
+    id,
+    idComment,
+  })
 }
-
-// export const getGame = (id: string | undefined): Promise<GameType> => {
-//   const game = axios
-//     .get(https://twitter-clone-production-c817.up.railway.app`)
-//     .then((res) => res.data)
-//   return game
-// }
