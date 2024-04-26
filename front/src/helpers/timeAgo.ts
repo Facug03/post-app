@@ -24,9 +24,16 @@ export function timeAgoFormat(createdAt: Date): string {
     return hourAgo + 's'
   }
 
-  const date = format(new Date(createdAt), 'd MMM.', {
+  const currentYear = new Date().getFullYear()
+  const postYear = new Date(createdAt).getFullYear()
+
+  if (currentYear !== postYear) {
+    return format(new Date(createdAt), 'd MMM. yyyy', {
+      locale: es,
+    })
+  }
+
+  return format(new Date(createdAt), 'd MMM.', {
     locale: es,
   })
-
-  return date
 }
