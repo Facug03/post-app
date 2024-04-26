@@ -76,9 +76,14 @@ export default function Card({
       <div className='w-full border-[#2f3336] px-4  py-2 border-b-[1.5px] flex gap-3 hover:bg-twittHover duration-200 ease-in-out'>
         <div className='w-12 h-12 items-center flex justify-center'>
           {image ? (
-            <img className='w-12 h-12 rounded-[50%]' src={image} />
+            <img
+              className='w-12 h-12 rounded-[50%]'
+              src={image}
+              width={48}
+              height={48}
+            />
           ) : (
-            <img className='w-10 h-10' src={img} />
+            <img className='w-10 h-10' src={img} width={40} height={40} />
           )}
         </div>
         <div className='flex-1'>
