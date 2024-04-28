@@ -68,7 +68,7 @@ export default function Posts({
       <select
         defaultValue={filters.filter === 'likes' ? 'likes' : filters.order}
         onChange={(e) => selectFilter(e)}
-        className='text-xl w-full bg-transparent cursor-pointer py-2 px-4 border-[#2f3336] border-b-[1.5px] text-pri'
+        className='text-xl w-full bg-[#000000] cursor-pointer py-2 px-4 border-[#2f3336] border-b-[1.5px] text-pri'
       >
         <option value='desc'>Mas recientes</option>
         <option value='asc'>Mas antiguos</option>
