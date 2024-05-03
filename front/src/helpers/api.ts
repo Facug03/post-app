@@ -4,7 +4,6 @@ import { FieldValues } from 'react-hook-form'
 import type { Post, Filter, PaginatedPost } from '../types'
 
 const BACK_URL = 'https://twitter-clone-facundo-projects.koyeb.app'
-// const BACK_URL = 'https://post-app-h399.onrender.com'
 
 export type commentPost = {
   username: string | null | undefined
